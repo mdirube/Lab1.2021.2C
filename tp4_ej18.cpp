@@ -7,42 +7,36 @@
 # include<cstdlib>
 
 using namespace std;
-///Hacer un programa para ingresar una lista de números que finaliza cuando se ingresan
-///dos números consecutivos iguales
-
-///y luego informar el máximo. Cuando se ingresa el
-///número repetido el mismo debe ser descartado.
-
+/*Hacer un programa para ingresar una lista de números que finaliza cuando se ingresan
+dos números positivos consecutivos, y luego informar el máximo. Cuando se ingresa el
+número positivo repetido el mismo debe ser descartado.
+*/
 
 int main(){
-    bool seguir=true;
-    int num, anterior, maximo, contadorPositivos=0;
+    int num, contadorPos=0, maximo;
     cout<<"NUMERO: ";
     cin>>num;
-    if(num>0){
-        contadorPositivos++;
-    }
     maximo=num;
-    while(seguir==true){
-        anterior=num;
+    if(num>0){
+        contadorPos++;
+    }
+
+    while(contadorPos<2){
+
         cout<<"NUMERO: ";
         cin>>num;
-
-        if(num>0){
-            contadorPositivos++;
-        }
-        else{
-            contadorPositivos=0;
-        }
         if(num>maximo){
             maximo=num;
         }
-
-        if(contadorPositivos==2){
-            seguir=false;
+        if(num>0){
+            contadorPos++;
+        }
+        else{
+            contadorPos=0;
         }
     }
-	cout<<"EL MAXIMO VALOR INGRESADO FUE: "<<maximo;
+    cout<<"MAXIMO: "<<maximo;
+
 	cout<<endl;
 	system("pause");
 	return 0;
